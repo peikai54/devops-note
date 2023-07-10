@@ -5,5 +5,5 @@ COPY . /docs
 WORKDIR /docs
 RUN pwd
 RUN ls
-RUN npm run install
+RUN npm install
 RUN npm run docs:dev
