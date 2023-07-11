@@ -7,9 +7,12 @@ RUN pwd
 RUN ls
 RUN npm install
 RUN npm run docs:build
+RUN cd docs 
+RUN ls
 
 FROM nginx:latest
 
 COPY --from=builder /app /app
+WORKDIR /app
 RUN pwd 
 RUN ls
