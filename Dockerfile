@@ -12,9 +12,7 @@ RUN ls
 
 FROM nginx:latest
 
-COPY --from=builder /app/docs/.vuepress/dist /app/dist
-
-COPY /app/dist /usr/share/nginx/html
+COPY --from=builder /app/docs/.vuepress/dist /usr/share/nginx/html
 
 EXPOSE 8001
 
