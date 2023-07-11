@@ -12,7 +12,7 @@ RUN ls
 
 FROM nginx:latest
 
-COPY --from=builder /app /app
+COPY --from=builder /app/docs/.vuepress/dist /app/dist
 WORKDIR /app
 RUN pwd 
 RUN ls
