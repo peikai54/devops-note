@@ -14,7 +14,9 @@ FROM nginx:latest
 
 COPY --from=builder /app/docs/.vuepress/dist /app/dist
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY /app/dist /usr/share/nginx/html
+
+EXPOSE 8001
 
 EXPOSE 80
 
