@@ -9,4 +9,4 @@ EXPOSE 8080
 RUN npm install
 ENTRYPOINT ["npm", "run"]
 
-CMD ["docs:dev"]
+CMD ["docs:build"]
