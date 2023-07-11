@@ -1,12 +1,15 @@
-FROM node:12.18.0
+FROM node:12.18.0  AS builder
 
 RUN npm config set registry https://registry.npm.taobao.org
-COPY . /docs
-WORKDIR /docs
+WORKDIR /app
+COPY . .
 RUN pwd
 RUN ls
-EXPOSE 8080
 RUN npm install
-ENTRYPOINT ["npm", "run"]
+RUN npm run docs:build
 
-CMD ["docs:build"]
+FROM nginx:latest
+
+COPY --from=builder /app /app
+RUN pwd 
+RUN ls
