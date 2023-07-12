@@ -10,4 +10,4 @@ RUN npm run docs:build
 
 ENTRYPOINT ["npm", "run"]
 
-CMD ["build"]
+CMD ["start"]
