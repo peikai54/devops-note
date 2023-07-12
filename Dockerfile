@@ -23,7 +23,7 @@ FROM nginx:latest
 COPY --from=builder /app/docs/.vuepress/dist /usr/share/nginx/html
 
 # 设置 Nginx 的配置文件
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # 暴露容器的 80 端口
 EXPOSE 80
