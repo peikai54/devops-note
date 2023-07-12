@@ -27,3 +27,5 @@ RUN npm run build
 
 # 暴露容器的 80 端口
 EXPOSE 80
+
+CMD [ "bash" ]
