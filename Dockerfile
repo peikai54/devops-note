@@ -5,6 +5,7 @@ WORKDIR /app
 RUN mkdir test
 RUN ls
 COPY . .
+RUN ls
 RUN npm install
 RUN npm run docs:build
 
