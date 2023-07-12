@@ -16,6 +16,14 @@ COPY . .
 # 构建 VuePress 项目
 RUN npm run build
 
+RUN ls 
+
+RUN pwd
+
+RUN cd /app/docs/.vuepress/dist
+
+RUN ls
+
 # 创建一个新的镜像用于最终部署
 # FROM nginx:latest
 
@@ -26,6 +34,5 @@ RUN npm run build
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # 暴露容器的 80 端口
-EXPOSE 80
 
 CMD [ "bash" ]
