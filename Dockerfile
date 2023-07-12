@@ -5,3 +5,7 @@ WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run docs:build
+
+ENTRYPOINT ["npm", "run"]
+
+CMD ["build"]
