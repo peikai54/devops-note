@@ -6,7 +6,4 @@ RUN pwd
 COPY . .
 RUN npm install
 RUN npm run docs:build
-
-ENTRYPOINT ["npm", "run"]
-
-CMD ["build"]
+RUN npm run build
