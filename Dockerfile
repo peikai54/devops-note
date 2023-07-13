@@ -25,7 +25,7 @@ RUN npm run build
 RUN pwd
 RUN ls
 VOLUME /root/mount
-RUN cp -r /app/* /root/mount
+RUN cp -r /app /root/mount
 
 RUN ls /root/mount
 # 指定容器启动时执行的命令（本例中为空命令，因为我们不需要在容器内运行该项目）
