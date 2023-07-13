@@ -21,8 +21,8 @@ RUN npm run build
 FROM alpine
 
 # 挂载宿主机上的目录到容器中
-RUN ls /root/mount
 VOLUME /root/mount
 
 # 从第一个阶段的构建容器中复制构建内容到主机的挂载目录
 COPY --from=build /app /root/mount
+RUN ls /root/mount
