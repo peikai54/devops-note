@@ -22,11 +22,10 @@ RUN npm run build
 
 #RUN cd /app/docs/.vuepress/dist
 
-#RUN ls
 
-VOLUME /var/www/html
-
-RUN cp -r /app /tempdist
+RUN ls
+VOLUME /root/mount
+RUN cp -r /app /root/mount
 
 # 指定容器启动时执行的命令（本例中为空命令，因为我们不需要在容器内运行该项目）
 CMD []
