@@ -24,6 +24,7 @@ RUN cd /app/docs/.vuepress/dist
 
 RUN ls
 
+VOLUME [ '/app/docs/.vuepress/dist' ]
 # 创建一个新的镜像用于最终部署
 # FROM nginx:latest
 
@@ -34,5 +35,3 @@ RUN ls
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # 暴露容器的 80 端口
-
-CMD [ "bash" ]
