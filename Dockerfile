@@ -24,7 +24,7 @@ RUN cd /app/docs/.vuepress/dist
 
 RUN ls
 
-VOLUME /app
+VOLUME /root/mount-docker/deploy-note
 # 创建一个新的镜像用于最终部署
 # FROM nginx:latest
 
