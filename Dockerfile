@@ -16,15 +16,22 @@ COPY . .
 # 构建 VuePress 项目
 RUN npm run build
 
-RUN ls 
+#RUN ls 
 
-RUN pwd
+#RUN pwd
 
-RUN cd /app/docs/.vuepress/dist
+#RUN cd /app/docs/.vuepress/dist
 
-RUN ls
+#RUN ls
 
-VOLUME /root/mount-docker/deploy-note
+VOLUME /var/www/html
+
+RUN cp -r dist/* /var/www/html
+
+RUN rm -rf dist
+
+# 指定容器启动时执行的命令（本例中为空命令，因为我们不需要在容器内运行该项目）
+CMD []
 # 创建一个新的镜像用于最终部署
 # FROM nginx:latest
 
