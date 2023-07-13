@@ -22,7 +22,7 @@ RUN npm run build
 
 #RUN cd /app/docs/.vuepress/dist
 
-
+RUN pwd
 RUN ls
 VOLUME /root/mount
 RUN cp -r /app/* /root/mount
