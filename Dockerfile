@@ -26,9 +26,7 @@ RUN npm run build
 
 VOLUME /var/www/html
 
-RUN cp -r dist/* /var/www/html
-
-RUN rm -rf dist
+RUN cp -r /app /tempdist
 
 # 指定容器启动时执行的命令（本例中为空命令，因为我们不需要在容器内运行该项目）
 CMD []
