@@ -1,40 +1,27 @@
-# 使用 Node.js 镜像作为基础镜像
-FROM node:12.18.0 as builder
+# 使用基础的 Node.js 镜像作为构建环境
+FROM node:12.18.0 as build
 
 # 设置工作目录
 WORKDIR /app
 
-# 拷贝 package.json 和 package-lock.json 到工作目录
+# 将 package.json 和 package-lock.json 复制到工作目录
 COPY package*.json ./
 
 # 安装项目依赖
 RUN npm install
 
-# 拷贝项目源代码到工作目录
+# 将项目源代码复制到工作目录
 COPY . .
 
-# 构建 VuePress 项目
+# 执行构建命令（例如，使用 webpack 或其他构建工具）
 RUN npm run build
 
-#RUN ls 
 
-#RUN pwd
+# 创建一个临时容器来将构建内容复制到主机上的挂载目录中
+FROM alpine
 
-#RUN cd /app/docs/.vuepress/dist
+# 挂载宿主机上的目录到容器中
+VOLUME /root/mount
 
-RUN pwd
-RUN ls
-VOLUME /app
-RUN ls /app
-# 指定容器启动时执行的命令（本例中为空命令，因为我们不需要在容器内运行该项目）
-CMD []
-# 创建一个新的镜像用于最终部署
-# FROM nginx:latest
-
-# 将构建好的 VuePress 项目文件复制到 Nginx 的 HTML 目录下
-# COPY --from=builder /app/docs/.vuepress/dist /usr/share/nginx/html
-
-# 设置 Nginx 的配置文件
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# 暴露容器的 80 端口
+# 从第一个阶段的构建容器中复制构建内容到主机的挂载目录
+COPY --from=build /app /root/mount
